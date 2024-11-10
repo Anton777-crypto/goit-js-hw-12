@@ -1,0 +1,17 @@
+import{a as f,i as p,S as m}from"./assets/vendor-Rdv7LHNr.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const d of o.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&s(d)}).observe(document,{childList:!0,subtree:!0});function a(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(e){if(e.ep)return;e.ep=!0;const o=a(e);fetch(e.href,o)}})();const g="46834340-89d4e2966326dbab6749c20a4",h="https://pixabay.com/api/";async function u(r,t=1,a=15){try{const s=await f.get(h,{params:{key:g,q:r,image_type:"photo",orientation:"horizontal",safesearch:!0,page:t,per_page:a}});return s.data.hits.length===0&&p.error({title:"Error",message:"Sorry, there are no images matching your search query. Please try again!",position:"center",maxWidth:"250px",color:"rgb(255, 162, 0)"}),s.data}catch(s){console.log("Error fetching images:",s),p.error({title:"Error",message:"Failed to fetch images. Please try again later.",position:"center",maxWidth:"250px",color:"rgb(255, 0, 0)"})}}let b=new m(".gallery a",{captionsData:"alt",captionDelay:250,animationSpeed:300,loop:!0});async function y(r){const t=document.querySelector(".gallery"),a=r.map(e=>`
+        <div class="gallery-item">
+          <ul class='ul-gallery'>
+            <li class='li-gallery'>
+              <a href='${e.largeImageURL}' data-lightbox='gallery'>
+                <img class="images" src="${e.webformatURL}" alt="${e.tags}" loading="lazy" />
+              </a>
+              <div class="info">
+                <p class="info-info"><span class="info-p">Likes:</span> ${e.likes}</p>
+                <p class="info-info"><span class="info-p">Views:</span> ${e.views}</p>
+                <p class="info-info"><span class="info-p">Comments:</span> ${e.comments}</p>
+                <p class="info-info"><span class="info-p">Downloads:</span> ${e.downloads}</p>
+              </div>
+            </li>
+          </ul>
+        </div>`).join("");t.innerHTML+=a;const s=document.querySelector(".gallery-item");if(s){const e=s.getBoundingClientRect().height;window.scrollBy({top:e*2,left:0,behavior:"smooth"})}b.refresh()}function L(){document.querySelector(".gallery").innerHTML=""}const v=document.querySelector("#search-form"),w=document.querySelector("#search-input"),l=document.querySelector(".loader"),c=document.querySelector("#load-more-btn");let n=1,i="";v.addEventListener("submit",async r=>{if(r.preventDefault(),i=w.value.trim(),!!i){n=1,L(),c.style.display="none",l.style.display="block";try{const t=await u(i,n);y(t.hits),t.totalHits>15&&(c.style.display="block")}catch(t){console.error("Error during search:",t)}finally{l.style.display="none"}}});c.addEventListener("click",async()=>{n+=1,l.style.display="block";try{const r=await u(i,n);y(r.hits),n*15>=r.totalHits&&(c.style.display="none",iziToast.info({title:"End of results",message:"We're sorry, but you've reached the end of search results.",position:"center",maxWidth:"250px",color:"rgb(255, 162, 0)"}))}catch(r){console.error("Error during load more:",r)}finally{l.style.display="none"}});
+//# sourceMappingURL=index.js.map
