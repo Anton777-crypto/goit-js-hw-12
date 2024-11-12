@@ -15,25 +15,34 @@ export async function renderImages(images) {
   const markup = images
     .map(image => {
       return `
-          <div class="gallery-item">
-            <ul class='ul-gallery'>
-              <li class='li-gallery'>
-                <a href='${image.largeImageURL}' data-lightbox='gallery'>
-                  <img class="images" src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
-                </a>
-                <div class="info">
-                  <p class="info-info"><span class="info-p">Likes:</span> ${image.likes}</p>
-                  <p class="info-info"><span class="info-p">Views:</span> ${image.views}</p>
-                  <p class="info-info"><span class="info-p">Comments:</span> ${image.comments}</p>
-                  <p class="info-info"><span class="info-p">Downloads:</span> ${image.downloads}</p>
-                </div>
-              </li>
-            </ul>
-          </div>`;
+        <div class="gallery-item">
+          <ul class='ul-gallery'>
+            <li class='li-gallery'>
+              <a href='${image.largeImageURL}' data-lightbox='gallery'>
+                <img class="images" src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
+              </a>
+              <div class="info">
+                <p class="info-info"><span class="info-p">Likes:</span> ${image.likes}</p>
+                <p class="info-info"><span class="info-p">Views:</span> ${image.views}</p>
+                <p class="info-info"><span class="info-p">Comments:</span> ${image.comments}</p>
+                <p class="info-info"><span class="info-p">Downloads:</span> ${image.downloads}</p>
+              </div>
+            </li>
+          </ul>
+        </div>`;
     })
     .join('');
 
-  gallery.innerHTML = markup;
+  gallery.innerHTML += markup; // Append new images
+  const galleryItem = document.querySelector('.gallery-item'); // Get the height of one item
+  if (galleryItem) {
+    const itemHeight = galleryItem.getBoundingClientRect().height;
+    window.scrollBy({
+      top: itemHeight * 2, // Scroll by two item heights
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
 
   lightbox.refresh();
 }
