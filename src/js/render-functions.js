@@ -33,24 +33,21 @@ export async function renderImages(images) {
     })
     .join('');
 
-  gallery.innerHTML += markup; // Use += to append images instead of replacing the content
+  gallery.innerHTML += markup;
 
   lightbox.refresh();
 
-  // Scroll the page after images are rendered
   scrollToNextImages();
 }
 
-// Function to calculate the height of a gallery item and scroll
 function scrollToNextImages() {
-  // Get the height of the first gallery item
   const galleryItem = document.querySelector('.gallery-item');
   if (galleryItem) {
     const itemHeight = galleryItem.getBoundingClientRect().height;
-    // Scroll the page down by twice the height of a gallery item
+
     window.scrollBy({
-      top: itemHeight * 2, // Scroll by two times the height
-      behavior: 'smooth', // Smooth scroll effect
+      top: itemHeight * 2,
+      behavior: 'smooth',
     });
   }
 }
