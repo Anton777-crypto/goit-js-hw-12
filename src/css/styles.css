@@ -162,27 +162,23 @@ li {
   transform: translateX(-50%);
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Зазор между изображениями */
-}
-
 .gallery-item {
-  width: 250px; /* Задайте фиксированную ширину для всех блоков */
-  height: 250px; /* Задайте фиксированную высоту для всех блоков */
+  width: 300px; /* Задайте ширину для каждого элемента */
   overflow: hidden;
+  margin: 10px; /* Пространство между элементами */
 }
 
 .gallery-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Обрезает изображение по краям, чтобы оно соответствовало контейнеру */
-  display: block;
+  height: 200px; /* Задайте фиксированную высоту для изображений */
+  object-fit: cover; /* Убедитесь, что изображение обрезано, чтобы заполнить контейнер */
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  height: 100px; /* Фиксированная высота для блока информации */
 }
