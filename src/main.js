@@ -9,6 +9,7 @@ const loadMoreBtn = document.querySelector('#load-more-btn');
 let page = 1;
 let query = '';
 
+// Обработчик события для кнопки "Search"
 form.addEventListener('submit', async event => {
   event.preventDefault();
   query = input.value.trim();
@@ -16,32 +17,31 @@ form.addEventListener('submit', async event => {
 
   page = 1;
   clearGallery();
-  loadMoreBtn.style.display = 'none'; // Скрыть кнопку перед поиском
-
-  loader.style.display = 'flex'; // Показать индикатор загрузки
+  loadMoreBtn.style.display = 'none';
+  loader.style.display = 'flex';
 
   try {
     const data = await fetchImages(query, page);
     renderImages(data.hits);
     if (data.totalHits > 15) {
-      loadMoreBtn.style.display = 'block'; // Показать кнопку, если есть больше изображений
+      loadMoreBtn.style.display = 'block';
     }
   } catch (error) {
     console.error('Error during search:', error);
   } finally {
-    loader.style.display = 'none'; // Скрыть индикатор загрузки после завершения поиска
+    loader.style.display = 'none';
   }
 });
 
 loadMoreBtn.addEventListener('click', async () => {
   page += 1;
-  loader.style.display = 'flex'; // Показать индикатор загрузки при нажатии на "Load More"
+  loader.style.display = 'flex';
 
   try {
     const data = await fetchImages(query, page);
     renderImages(data.hits);
     if (page * 15 >= data.totalHits) {
-      loadMoreBtn.style.display = 'none'; // Скрыть кнопку, если больше нет результатов
+      loadMoreBtn.style.display = 'none';
       iziToast.info({
         title: 'End of results',
         message: "We're sorry, but you've reached the end of search results.",
@@ -53,6 +53,6 @@ loadMoreBtn.addEventListener('click', async () => {
   } catch (error) {
     console.error('Error during load more:', error);
   } finally {
-    loader.style.display = 'none'; // Скрыть индикатор загрузки после завершения
+    loader.style.display = 'none';
   }
 });
