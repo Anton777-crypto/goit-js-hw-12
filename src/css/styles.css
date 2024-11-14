@@ -118,7 +118,13 @@ li {
   text-align: center;
   margin-top: 20px;
 }
-
+.loaderrr {
+  display: none; /* Скрыто по умолчанию */
+  font-size: 24px;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+}
 @media (max-width: 1024px) {
   .gallery-item {
     width: calc(33.333% - 16px);

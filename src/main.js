@@ -4,6 +4,8 @@ import { renderImages, clearGallery } from './js/render-functions';
 const form = document.querySelector('#search-form');
 const input = document.querySelector('#search-input');
 const loader = document.querySelector('.loader');
+const loaderr = document.querySelector('.loaderr');
+
 const loadMoreBtn = document.querySelector('#load-more-btn');
 
 let page = 1;
@@ -35,7 +37,7 @@ form.addEventListener('submit', async event => {
 
 loadMoreBtn.addEventListener('click', async () => {
   page += 1;
-  loader.style.display = 'flex';
+  loaderrr.style.display = 'flex';
 
   try {
     const data = await fetchImages(query, page);
