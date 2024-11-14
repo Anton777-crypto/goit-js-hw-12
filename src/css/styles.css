@@ -145,11 +145,7 @@ li {
   height: 200px;
   object-fit: cover;
 }
-.images img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
+
 .load-more {
   display: block;
   margin: 20px auto;
@@ -172,12 +168,21 @@ li {
   gap: 10px;
 }
 
-.gallery-item {
-  overflow: hidden;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Зазор между изображениями */
 }
 
 .gallery-item {
-  width: 200px;
-  height: 200px;
+  width: 250px; /* Задайте фиксированную ширину для всех блоков */
+  height: 250px; /* Задайте фиксированную высоту для всех блоков */
   overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Обрезает изображение по краям, чтобы оно соответствовало контейнеру */
+  display: block;
 }
