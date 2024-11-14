@@ -165,3 +165,19 @@ li {
   left: 50%;
   transform: translateX(-50%);
 }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.gallery-item {
+  overflow: hidden;
+}
+
+.gallery-item {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
