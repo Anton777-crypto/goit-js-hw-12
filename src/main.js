@@ -4,6 +4,8 @@ import { renderImages, clearGallery } from './js/render-functions';
 const form = document.querySelector('#search-form');
 const input = document.querySelector('#search-input');
 const loader = document.querySelector('.loader');
+const loaderr = document.querySelector('.loaderr');
+
 const loadMoreBtn = document.querySelector('#load-more-btn');
 
 let page = 1;
@@ -19,6 +21,8 @@ form.addEventListener('submit', async event => {
   loadMoreBtn.style.display = 'none'; // Hide the button initially
 
   loader.style.display = 'block';
+  loaderr.style.display = 'block';
+
   try {
     const data = await fetchImages(query, page);
     renderImages(data.hits);
@@ -41,7 +45,7 @@ loadMoreBtn.addEventListener('click', async () => {
     if (page * 15 >= data.totalHits) {
       loadMoreBtn.style.display = 'none'; // Hide the button if no more results
       iziToast.info({
-        title: "End of results",
+        title: 'End of results',
         message: "We're sorry, but you've reached the end of search results.",
         position: 'center',
         maxWidth: '250px',

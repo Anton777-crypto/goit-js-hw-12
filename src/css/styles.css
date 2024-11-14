@@ -106,6 +106,10 @@ li {
   justify-content: center;
 }
 .loaderr {
+  display: none;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 1024px) {
   .gallery-item {
