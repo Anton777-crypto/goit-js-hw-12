@@ -20,8 +20,8 @@ form.addEventListener('submit', async event => {
   clearGallery();
   loadMoreBtn.style.display = 'none'; // Hide the button initially
 
-  loader.style.display = 'block';
-  loaderr.style.display = 'block';
+  loader.style.display = 'flex';
+  loaderr.style.display = 'flex';
 
   try {
     const data = await fetchImages(query, page);
