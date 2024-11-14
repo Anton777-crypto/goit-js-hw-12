@@ -40,7 +40,13 @@ loadMoreBtn.addEventListener('click', async () => {
   page += 1;
   loader.style.display = 'flex';
   loaderr.style.display = 'flex';
+  function loadMore() {
+    document.querySelector('.loaderrr').style.display = 'block';
 
+    setTimeout(() => {
+      document.querySelector('.loaderrr').style.display = 'none';
+    }, 2000);
+  }
   try {
     const data = await fetchImages(query, page);
     renderImages(data.hits);
