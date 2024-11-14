@@ -4,8 +4,6 @@ import { renderImages, clearGallery } from './js/render-functions';
 const form = document.querySelector('#search-form');
 const input = document.querySelector('#search-input');
 const loader = document.querySelector('.loader');
-const loaderr = document.querySelector('.loaderr');
-
 const loadMoreBtn = document.querySelector('#load-more-btn');
 
 let page = 1;
@@ -18,40 +16,32 @@ form.addEventListener('submit', async event => {
 
   page = 1;
   clearGallery();
-  loadMoreBtn.style.display = 'none'; // Hide the button initially
+  loadMoreBtn.style.display = 'none'; // Скрыть кнопку перед поиском
 
-  loader.style.display = 'flex';
-  loaderr.style.display = 'flex';
+  loader.style.display = 'flex'; // Показать индикатор загрузки
 
   try {
     const data = await fetchImages(query, page);
     renderImages(data.hits);
     if (data.totalHits > 15) {
-      loadMoreBtn.style.display = 'block'; // Show the button if there are more images
+      loadMoreBtn.style.display = 'block'; // Показать кнопку, если есть больше изображений
     }
   } catch (error) {
     console.error('Error during search:', error);
   } finally {
-    loader.style.display = 'none';
+    loader.style.display = 'none'; // Скрыть индикатор загрузки после завершения поиска
   }
 });
 
 loadMoreBtn.addEventListener('click', async () => {
   page += 1;
-  loader.style.display = 'flex';
-  loaderr.style.display = 'flex';
-  function loadMore() {
-    document.querySelector('.loaderrr').style.display = 'block';
+  loader.style.display = 'flex'; // Показать индикатор загрузки при нажатии на "Load More"
 
-    setTimeout(() => {
-      document.querySelector('.loaderrr').style.display = 'none';
-    }, 2000);
-  }
   try {
     const data = await fetchImages(query, page);
     renderImages(data.hits);
     if (page * 15 >= data.totalHits) {
-      loadMoreBtn.style.display = 'none'; // Hide the button if no more results
+      loadMoreBtn.style.display = 'none'; // Скрыть кнопку, если больше нет результатов
       iziToast.info({
         title: 'End of results',
         message: "We're sorry, but you've reached the end of search results.",
@@ -63,6 +53,6 @@ loadMoreBtn.addEventListener('click', async () => {
   } catch (error) {
     console.error('Error during load more:', error);
   } finally {
-    loader.style.display = 'none';
+    loader.style.display = 'none'; // Скрыть индикатор загрузки после завершения
   }
 });
