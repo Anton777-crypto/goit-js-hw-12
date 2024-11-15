@@ -12,7 +12,7 @@ const loadMoreBtn = document.querySelector('#load-more-btn');
 let page = 1;
 let query = '';
 
-btn.addEventListener('submit', async event => {
+btn.addEventListener('click', async event => {
   event.preventDefault();
   query = input.value.trim();
   if (!query) {
