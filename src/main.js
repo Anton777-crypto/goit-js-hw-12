@@ -27,16 +27,16 @@ btn.addEventListener('submit', async event => {
 });
 form.addEventListener('submit', async event => {
   event.preventDefault();
-  query = input.value.trim();
-  if (!query) {
-    iziToast.info({
-      title: 'End of results',
-      message: 'Введите значения!!!!!',
-      position: 'center',
-      maxWidth: '250px',
-      color: 'rgb(255, 162, 0)',
-    });
-  }
+  //   query = input.value.trim();
+  //   if (!query) {
+  //     iziToast.info({
+  //       title: 'End of results',
+  //       message: 'Введите значения!!!!!',
+  //       position: 'center',
+  //       maxWidth: '250px',
+  //       color: 'rgb(255, 162, 0)',
+  //     });
+  //   }
 
   page = 1;
   clearGallery();
