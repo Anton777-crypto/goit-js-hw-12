@@ -15,6 +15,8 @@ let query = '';
 btn.addEventListener('click', async event => {
   event.preventDefault();
   query = input.value.trim();
+  loader.style.display = 'flex';
+  loaderr.style.display = 'flex';
   if (!query) {
     iziToast.info({
       title: 'End of results',
