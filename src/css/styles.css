@@ -94,9 +94,9 @@ li {
 }
 
 .load-more {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transform: translateX(-50%);
 }
 .loader {
