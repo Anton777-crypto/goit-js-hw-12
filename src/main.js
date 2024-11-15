@@ -6,12 +6,25 @@ const input = document.querySelector('#search-input');
 const loader = document.querySelector('.loader');
 const loaderr = document.querySelector('.loaderr');
 const down_loader = document.querySelector('.down_loader');
-
+const btn = document.querySelector('.btn');
 const loadMoreBtn = document.querySelector('#load-more-btn');
 
 let page = 1;
 let query = '';
 
+btn.addEventListener('submit', async event => {
+  event.preventDefault();
+  query = input.value.trim();
+  if (!query) {
+    iziToast.info({
+      title: 'End of results',
+      message: 'Введите значения!!!!!',
+      position: 'center',
+      maxWidth: '250px',
+      color: 'rgb(255, 162, 0)',
+    });
+  }
+});
 form.addEventListener('submit', async event => {
   event.preventDefault();
   query = input.value.trim();
