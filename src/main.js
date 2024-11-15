@@ -70,6 +70,7 @@ loadMoreBtn.addEventListener('click', async () => {
   } catch (error) {
     console.error('Error during load more:', error);
   } finally {
-    down_loader.style.display = 'flex';
+    down_loader.style.display = 'none';
+    loaderr_two.style.display = 'none';
   }
 });
