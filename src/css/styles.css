@@ -83,11 +83,6 @@ li {
   color: #333;
 }
 
-.load-more {
-  display: block;
-  margin: 20px auto;
-}
-
 .container {
   position: relative;
   min-height: 10vh;
@@ -98,6 +93,15 @@ li {
   align-items: center;
   justify-content: center;
   transform: translateX(-50%);
+  border-radius: 10px;
+  border-color: blue;
+  background-color: aqua;
+  color: blueviolet;
+  cursor: pointer;
+}
+.load-more:hover {
+  background-color: aqua;
+  color: red;
 }
 .loader {
   display: none;
