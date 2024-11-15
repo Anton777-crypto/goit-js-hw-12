@@ -60,6 +60,8 @@ loadMoreBtn.addEventListener('click', async () => {
         maxWidth: '250px',
         color: 'rgb(255, 162, 0)',
       });
+    } else {
+      loadMoreBtn.style.display = 'flex';
     }
   } catch (error) {
     console.error('Error during load more:', error);
