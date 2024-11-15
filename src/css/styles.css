@@ -110,6 +110,10 @@ li {
   margin-top: 10px;
   align-items: center;
   justify-content: center;
+  color: rgb(117, 70, 161);
+}
+.loaderr_point {
+  color: rgb(61, 61, 193);
 }
 .loader {
   display: none;
