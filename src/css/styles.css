@@ -131,6 +131,17 @@ li {
   justify-content: center;
   margin-top: 20px;
 }
+.loaderr_two {
+  display: none;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  color: rgb(133, 47, 214);
+}
+.loaderr_point_two {
+  font-size: medium;
+  color: rgb(12, 12, 233);
+}
 @media (max-width: 1024px) {
   .gallery-item {
     width: calc(33.333% - 16px);
