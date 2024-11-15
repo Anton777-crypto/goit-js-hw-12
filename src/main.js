@@ -7,7 +7,7 @@ const loader = document.querySelector('.loader');
 const loaderr = document.querySelector('.loaderr');
 const down_loader = document.querySelector('.down_loader');
 const loaderr_two = document.querySelector('.loaderr_two');
-const loaderr_point_two = document.querySelector('.loaderr_point_two');
+
 const loadMoreBtn = document.querySelector('#load-more-btn');
 
 let page = 1;
