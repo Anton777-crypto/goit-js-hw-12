@@ -56,8 +56,5 @@ loadMoreBtn.addEventListener('click', async () => {
     console.error('Error during load more:', error);
   } finally {
     down_loader.style.display = 'none';
-    if (page * 15 <= data.totalHits) {
-      loadMoreBtn.style.display = 'flex';
-    }
   }
 });
