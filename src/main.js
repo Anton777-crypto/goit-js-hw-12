@@ -5,6 +5,7 @@ const form = document.querySelector('#search-form');
 const input = document.querySelector('#search-input');
 const loader = document.querySelector('.loader');
 const loaderr = document.querySelector('.loaderr');
+const down_loader = document.querySelector('.down_loader');
 
 const loadMoreBtn = document.querySelector('#load-more-btn');
 
@@ -20,12 +21,12 @@ form.addEventListener('submit', async event => {
   clearGallery();
   loadMoreBtn.style.display = 'none';
   loader.style.display = 'flex';
-
+  loaderr.style.display = 'flex';
   try {
     const data = await fetchImages(query, page);
     renderImages(data.hits);
     if (data.totalHits > 15) {
-      loadMoreBtn.style.display = 'block';
+      loadMoreBtn.style.display = 'flex';
     }
   } catch (error) {
     console.error('Error during search:', error);
@@ -36,7 +37,7 @@ form.addEventListener('submit', async event => {
 
 loadMoreBtn.addEventListener('click', async () => {
   page += 1;
-  loaderr.style.display = 'none';
+  down_loader.style.display = 'flex';
 
   try {
     const data = await fetchImages(query, page);
