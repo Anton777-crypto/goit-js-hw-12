@@ -112,14 +112,14 @@ li {
   justify-content: center;
 }
 .loader {
-  display: none; /* Скрыто по умолчанию */
+  display: none;
   font-size: 24px;
   color: #555;
   text-align: center;
   margin-top: 20px;
 }
 .loaderrr {
-  display: none; /* Скрыто по умолчанию */
+  display: none;
   font-size: 24px;
   color: #555;
   text-align: center;

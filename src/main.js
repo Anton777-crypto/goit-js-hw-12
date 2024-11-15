@@ -11,7 +11,6 @@ const loadMoreBtn = document.querySelector('#load-more-btn');
 let page = 1;
 let query = '';
 
-// Обработчик события для кнопки "Search"
 form.addEventListener('submit', async event => {
   event.preventDefault();
   query = input.value.trim();
@@ -37,7 +36,7 @@ form.addEventListener('submit', async event => {
 
 loadMoreBtn.addEventListener('click', async () => {
   page += 1;
-  loaderrr.style.display = 'flex';
+  loaderr.style.display = 'flex';
 
   try {
     const data = await fetchImages(query, page);
