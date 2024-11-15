@@ -46,8 +46,9 @@ form.addEventListener('submit', async event => {
 
 loadMoreBtn.addEventListener('click', async () => {
   page += 1;
-  down_loader.style.display = 'flex';
+
   loadMoreBtn.style.display = 'none';
+  down_loader.style.display = 'flex';
   try {
     const data = await fetchImages(query, page);
     renderImages(data.hits);
