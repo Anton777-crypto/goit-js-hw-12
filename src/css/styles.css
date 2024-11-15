@@ -110,10 +110,11 @@ li {
   margin-top: 10px;
   align-items: center;
   justify-content: center;
-  color: rgb(117, 70, 161);
+  color: rgb(133, 47, 214);
 }
 .loaderr_point {
-  color: rgb(61, 61, 193);
+  font-size: medium;
+  color: rgb(12, 12, 233);
 }
 .loader {
   display: none;
